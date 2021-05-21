@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
+import { BaseText } from '../../components/text';
 import { actions } from './redux/actions';
+import { LoginStyles as styles } from './LoginStyles';
 
 const LoginScreen = props => {
   const onClickLogin = () => {
@@ -24,21 +26,11 @@ const LoginScreen = props => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.containerBtnLogin} onPress={onClickLogin}>
-        <Text>Login</Text>
+        <BaseText>Login</BaseText>
       </TouchableOpacity>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  containerBtnLogin: {
-    backgroundColor: 'red',
-    padding: 20,
-  },
-});
 
 const mstp = state => ({
   loginReducer: state.loginReducer,

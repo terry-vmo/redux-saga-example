@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from './redux/actions';
+import { HomeStyles as styles } from './HomeStyles';
 
 const HomeScreen = props => {
   useEffect(() => {
@@ -19,12 +20,6 @@ const HomeScreen = props => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 const mstp = state => ({
   homeReducer: state.homeReducer,
