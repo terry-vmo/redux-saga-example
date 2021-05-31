@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { BaseText } from '../../components/text';
 import { actions } from './redux/actions';
 import { LoginStyles as styles } from './LoginStyles';
+import database from '@react-native-firebase/database';
 
 const LoginScreen = props => {
   const onClickLogin = () => {
@@ -13,6 +14,16 @@ const LoginScreen = props => {
     };
     props.login(loginInfo);
   };
+
+  useEffect(() => {
+    database()
+      .ref('/users/123')
+      .set({
+        name: 'Ada Lovelace',
+        age: 31,
+      })
+      .then(() => console.log('Data set.'));
+  }, []);
 
   useEffect(() => {
     const { isLoading, jwt_token } = props.loginReducer;
